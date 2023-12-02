@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-blue-1 text-primary;
+	}
+	main {
+		@apply flex min-h-screen flex-col items-center justify-between p-24;
+	}
+
+	section {
+		@apply max-w-wrapper w-full mx-auto;
+	}
+}
