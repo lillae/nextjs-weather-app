@@ -4,13 +4,24 @@
 
 @layer base {
 	body {
-		@apply bg-blue-1 text-primary;
+		@apply bg-blue-1 text-primary text-lg;
 	}
 	main {
-		@apply flex min-h-screen flex-col items-center justify-between p-24;
+		@apply flex min-h-screen flex-col items-center justify-between p-4;
 	}
 
 	section {
 		@apply max-w-wrapper w-full mx-auto;
+	}
+
+	input[type='search']::-webkit-search-decoration,
+	input[type='search']::-webkit-search-cancel-button,
+	input[type='search']::-webkit-search-results-button,
+	input[type='search']::-webkit-search-results-decoration {
+		display: none;
+	}
+
+	mark {
+		@apply text-primary bg-transparent;
 	}
 }

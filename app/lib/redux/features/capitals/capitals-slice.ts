@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { RootState } from '@/app/lib/redux-store';
+import type { RootState } from '@/app/lib/redux/redux-store';
 
 interface ICapital {
 	id: string;
