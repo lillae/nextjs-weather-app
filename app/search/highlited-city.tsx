@@ -4,21 +4,21 @@ type Highlighted = {
 };
 
 const HighlightedCity = ({ city, term }: Highlighted) => {
-	const getHighlightedLetters = () => {
-		return city.split('').map((cityLetter, index) => {
-			const termLetter = term[index]?.toLowerCase();
+	const highlightTerm = () => {
+		let currentIndex = 0;
+		return city.split('').map((cityLetters, index) => {
+			const inputLetters = term[currentIndex]?.toLowerCase();
 
-			if (cityLetter.toLowerCase() === termLetter) {
-				return <mark key={index}>{cityLetter}</mark>;
+			if (cityLetters.toLowerCase() === inputLetters) {
+				currentIndex++;
+				return <mark key={index}>{cityLetters}</mark>;
 			} else {
-				return <span key={index}>{cityLetter}</span>;
+				return <span key={index}>{cityLetters}</span>;
 			}
 		});
 	};
 
-	return (
-		<p className='cursor-pointer text-blue-4'>{getHighlightedLetters()}</p>
-	);
+	return <p className='cursor-pointer text-blue-4'>{highlightTerm()}</p>;
 };
 
 export default HighlightedCity;

@@ -1,6 +1,5 @@
 'use client';
 
-//import { useState } from 'react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
 import { useDebouncedCallback } from 'use-debounce';
@@ -13,14 +12,6 @@ const SearchCities = () => {
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { replace } = useRouter();
-	// const [searchTerm, setSearchTerm] = useState<string>('');
-
-	// const selected = cities.map((city: any) => {
-	// 	return {
-	// 		value: `${city.latitude} ${city.longitude}`,
-	// 		label: `${city.name} ${city.countryCode} `,
-	// 	};
-	// });
 
 	const handleSearch = useDebouncedCallback((term) => {
 		const params = new URLSearchParams(searchParams);
