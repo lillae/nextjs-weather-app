@@ -4,7 +4,7 @@ import capitalsSlice from './features/capitals/capitals-slice';
 export const makeStore = () => {
 	return configureStore({
 		reducer: {
-			capitals: capitalsSlice,
+			selectedCapitals: capitalsSlice,
 		},
 	});
 };

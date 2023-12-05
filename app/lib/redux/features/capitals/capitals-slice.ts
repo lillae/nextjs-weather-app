@@ -4,17 +4,23 @@ import type { RootState } from '@/app/lib/redux/redux-store';
 
 interface ICapital {
 	id: string;
-	city: string;
+	name: string;
+	coordinates: {
+		lat: number;
+		lng: number;
+	};
 }
-const initialState: ICapital[] = [{ id: '0', city: 'Budapest' }];
+const initialState: ICapital[] = [
+	{ id: 'HUN', name: 'Budapest', coordinates: { lat: 47.5, lng: 19.08 } },
+];
 
 export const capitalsSlice = createSlice({
-	name: 'capitals',
+	name: 'selectedCapitals',
 	initialState,
 	reducers: {
 		addCapital: (state, action: PayloadAction<ICapital>) => {
-			const { id, city } = action.payload;
-			state.push({ id, city });
+			const { id, name, coordinates } = action.payload;
+			state.push({ id, name, coordinates });
 		},
 	},
 });

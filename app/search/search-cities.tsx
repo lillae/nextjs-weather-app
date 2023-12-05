@@ -5,8 +5,8 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 import { IoChevronDown } from 'react-icons/io5';
 
-import { BackButton } from '@/app/ui/buttons';
-import { SearchInput } from '@/app/ui/inputs';
+import { BackButton } from '@/ui/buttons';
+import { SearchInput } from '@/ui/inputs';
 
 const SearchCities = () => {
 	const searchParams = useSearchParams();

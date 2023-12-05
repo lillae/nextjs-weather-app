@@ -1,24 +1,56 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+import { SaveButton } from '@/ui/buttons';
+import { useHighlighter } from '@/lib/hooks/useHighlighter';
+
 type Highlighted = {
-	city: string;
+	city: any;
 	term: string;
 };
 
 const HighlightedCity = ({ city, term }: Highlighted) => {
-	const highlightTerm = () => {
-		let currentIndex = 0;
-		return city.split('').map((cityLetters, index) => {
-			const inputLetters = term[currentIndex]?.toLowerCase();
+	const router = useRouter();
+	const [highlightTerm] = useHighlighter();
+	const [isHovered, setIsHovered] = useState<boolean>(false);
+	const [activeId, setActiveId] = useState<string>('');
+	const [isSaved, setIsSaved] = useState<boolean>(false);
 
-			if (cityLetters.toLowerCase() === inputLetters) {
-				currentIndex++;
-				return <mark key={index}>{cityLetters}</mark>;
-			} else {
-				return <span key={index}>{cityLetters}</span>;
-			}
-		});
+	const clickHandler = (city: any) => {
+		setIsHovered(!isHovered);
+		setActiveId(city.id);
 	};
 
-	return <p className='cursor-pointer text-blue-4'>{highlightTerm()}</p>;
+	const saveHandler = (city: any) => {
+		console.log(`saved: ${city.name}`);
+		setIsSaved(true);
+	};
+
+	useEffect(() => {
+		if (isSaved) {
+			setTimeout(() => {
+				setActiveId('');
+				router.push('/');
+			}, 1000);
+		}
+	}, [isSaved]);
+
+	return (
+		<div
+			className={`${
+				isHovered ? 'bg-blue-2/10' : ''
+			} w-full cursor-pointer text-blue-4 flex items-center justify-between`}
+			onClick={() => clickHandler(city)}>
+			<p>{highlightTerm(city.name, term)}</p>
+			{city.id === activeId && (
+				<SaveButton onClick={() => saveHandler(city)}>
+					{isSaved ? 'Saved' : 'Save'}
+				</SaveButton>
+			)}
+		</div>
+	);
 };
 
 export default HighlightedCity;

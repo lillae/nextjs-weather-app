@@ -6,12 +6,12 @@ export const getCities = async (term: string) => {
 		const data = await res.json();
 		if (term) {
 			const capitalCities = data.map((d: any) => ({
+				id: d.cca3,
 				name: d.capital[0],
 				coordinates: {
 					lat: d.capitalInfo.latlng[0],
 					lng: d.capitalInfo.latlng[1],
 				},
-				id: d.cca3,
 			}));
 			return capitalCities;
 		}

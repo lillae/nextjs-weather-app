@@ -1,5 +1,5 @@
 import { SearchCities, Dropdown } from '.';
-import { getCities } from '../services/city-data';
+import { getCities } from '@/services/city-data';
 
 export default async function Search({
 	searchParams,
