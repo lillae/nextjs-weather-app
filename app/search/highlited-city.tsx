@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 
 import { SaveButton } from '@/ui/buttons';
 import { useHighlighter } from '@/lib/hooks/useHighlighter';
+import { useAppDispatch } from '@/lib/redux/redux-hooks';
+import { addCapital } from '@/lib/redux/features/capitals/capitals-slice';
 
 type Highlighted = {
 	city: any;
@@ -14,6 +16,8 @@ type Highlighted = {
 const HighlightedCity = ({ city, term }: Highlighted) => {
 	const router = useRouter();
 	const [highlightTerm] = useHighlighter();
+	const dispatch = useAppDispatch();
+
 	const [isHovered, setIsHovered] = useState<boolean>(false);
 	const [activeId, setActiveId] = useState<string>('');
 	const [isSaved, setIsSaved] = useState<boolean>(false);
@@ -24,8 +28,8 @@ const HighlightedCity = ({ city, term }: Highlighted) => {
 	};
 
 	const saveHandler = (city: any) => {
-		console.log(`saved: ${city.name}`);
 		setIsSaved(true);
+		dispatch(addCapital(city));
 	};
 
 	useEffect(() => {

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 import ReduxProvider from './redux-provider';
-import { geologica } from '@/app/ui/fonts';
-import '@/app/ui/globals.css';
+import { geologica } from '@/ui/fonts';
+import '@/ui/globals.css';
 
 export const metadata: Metadata = {
 	title: 'Weather App',

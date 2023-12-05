@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { RootState } from '@/app/lib/redux/redux-store';
+import type { RootState } from '@/lib/redux/redux-store';
 
 interface ICapital {
 	id: string;
@@ -26,5 +26,7 @@ export const capitalsSlice = createSlice({
 });
 
 export const { addCapital } = capitalsSlice.actions;
+
+export const selectedCapitals = (state: RootState) => state.selectedCapitals;
 
 export default capitalsSlice.reducer;
