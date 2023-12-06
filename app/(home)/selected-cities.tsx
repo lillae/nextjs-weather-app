@@ -12,16 +12,15 @@ const SelectedCities = () => {
 	const { replace } = useRouter();
 	const router = useRouter();
 
-	const getCoordinates = (lat: number, lon: number) => {
+	const getCityInfo = (cityName: string, countryCode: string) => {
 		const params = new URLSearchParams(searchParams);
-		if (lat && lon) {
-			params.set('lat', lat.toString());
-			params.set('lon', lon.toString());
+		if (cityName && countryCode) {
+			params.set('city', cityName);
+			params.set('countryCode', countryCode);
 		} else {
-			params.delete('lat', 'lon');
+			params.delete('city', 'countryCode');
 		}
 		replace(`${pathname}?${params}`);
-		console.log(lat, lon);
 		router.push(`/weather?${params}`);
 	};
 
@@ -31,9 +30,7 @@ const SelectedCities = () => {
 				<div className='flex flex-col items-center gap-2'>
 					{selected.map((city) => (
 						<CityButton
-							onClick={() =>
-								getCoordinates(city.coordinates.lat, city.coordinates.lon)
-							}
+							onClick={() => getCityInfo(city.name, city.id)}
 							key={city.id}>
 							{city.name}
 						</CityButton>

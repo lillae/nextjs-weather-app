@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { IoSunnyOutline } from 'react-icons/io5';
+//import { IoSunnyOutline } from 'react-icons/io5';
 import { WiSunset, WiSunrise } from 'react-icons/wi';
 import { FaTemperatureQuarter } from 'react-icons/fa6';
 
