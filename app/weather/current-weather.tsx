@@ -1,6 +1,3 @@
-import Image from 'next/image';
-
-//import { IoSunnyOutline } from 'react-icons/io5';
 import { WiSunset, WiSunrise } from 'react-icons/wi';
 import { FaTemperatureQuarter } from 'react-icons/fa6';
 
@@ -13,6 +10,7 @@ interface ICurrentWeather {
 
 const CurrentWeather = ({ currentWeather }: ICurrentWeather) => {
 	const { name, weather } = currentWeather;
+
 	const weatherI = [
 		{
 			icon: FaTemperatureQuarter,
@@ -40,14 +38,9 @@ const CurrentWeather = ({ currentWeather }: ICurrentWeather) => {
 					</p>
 					<h1 className='text-3xl text-primary font-semibold'>{name}</h1>
 				</div>
-				<div className='text-center space-y-2'>
-					<Image
-						src={`http://openweathermap.org/img/w/${weather[0].icon}.png`}
-						alt={weather[0].description}
-						width={100}
-						height={100}
-					/>
-					<p className='text-sm'>{weather[0].description}</p>
+				<div className='text-center'>
+					<i className={`wi wi-owm-${weather[0].id} text-blue-4 text-8xl`} />
+					<p className='text-sm mt-6'>{weather[0].description}</p>
 				</div>
 				<div className='w-[96px] flex flex-col items-center gap-3'>
 					{weatherI.map((info, index) => (

@@ -4,7 +4,7 @@ export const fetchCities = async (term: string) => {
 	try {
 		const res = await fetch(url);
 		const data = await res.json();
-		if (data && term) {
+		if (data.length > 0) {
 			const capitalCities = data.map((d: any) => ({
 				id: d.cca3,
 				name: d.capital[0],
@@ -15,6 +15,8 @@ export const fetchCities = async (term: string) => {
 			}));
 
 			return capitalCities;
+		} else {
+			return data;
 		}
 	} catch (error) {
 		console.error(error);

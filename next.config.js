@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ['openweathermap.org'],
+		remotePatterns: [
+			{
+				protocol: 'http',
+				hostname: 'openweathermap.org',
+				pathname: '/img/w/**',
+			},
+		],
 	},
 };
 
