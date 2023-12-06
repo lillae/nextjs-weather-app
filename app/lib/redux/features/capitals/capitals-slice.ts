@@ -1,3 +1,4 @@
+import { memoize } from 'proxy-memoize';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import type { RootState } from '@/lib/redux/redux-store';
@@ -27,9 +28,12 @@ export const capitalsSlice = createSlice({
 
 export const { addCapital } = capitalsSlice.actions;
 
-export const selectedCapitals = (state: RootState) => state.selectedCapitals;
+export const selectCapitals = memoize(
+	(state: RootState) => state.selectedCapitals
+);
 
-export const selectedCapitalsId = (state: RootState) =>
-	state.selectedCapitals.map((city) => city.id);
+export const selectCapitalIds = memoize((state: RootState) =>
+	state.selectedCapitals.map((city) => city.id)
+);
 
 export default capitalsSlice.reducer;

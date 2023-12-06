@@ -30,7 +30,7 @@ const SearchCities = () => {
 				<SearchInput
 					onChange={(e) => handleSearch(e.target.value)}
 					defaultValue={searchParams.get('query')?.toString()}
-					placeholder='Search cities'
+					placeholder='Search capitals'
 				/>
 				<IoChevronDown className='text-white/80 text-xl -ml-[20px]' />
 			</div>

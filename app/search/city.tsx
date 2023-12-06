@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/lib/redux/redux-hooks';
 import {
 	addCapital,
-	selectedCapitalsId,
+	selectCapitalIds,
 } from '@/lib/redux/features/capitals/capitals-slice';
 import { useHighlighter } from '@/lib/hooks/useHighlighter';
 import { SaveButton } from '@/ui/buttons';
@@ -19,7 +19,7 @@ type City = {
 const City = ({ city, term }: City) => {
 	const router = useRouter();
 	const dispatch = useAppDispatch();
-	const selectedIds = useAppSelector(selectedCapitalsId);
+	const selectedIds = useAppSelector(selectCapitalIds);
 	const filteredCities = !selectedIds.includes(city.id);
 	const [highlightTerm] = useHighlighter();
 
