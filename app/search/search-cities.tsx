@@ -21,7 +21,7 @@ const SearchCities = () => {
 			params.delete('query');
 		}
 		replace(`${pathname}?${params.toString()}`);
-	}, 300);
+	}, 500);
 
 	return (
 		<div className='w-full flex flex-col gap-14 relative'>

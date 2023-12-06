@@ -13,7 +13,7 @@ export const getCities = async (term: string) => {
 					lng: d.capitalInfo.latlng[1],
 				},
 			}));
-			console.log(capitalCities);
+
 			return capitalCities;
 		}
 	} catch (error) {
