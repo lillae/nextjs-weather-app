@@ -29,4 +29,7 @@ export const { addCapital } = capitalsSlice.actions;
 
 export const selectedCapitals = (state: RootState) => state.selectedCapitals;
 
+export const selectedCapitalsId = (state: RootState) =>
+	state.selectedCapitals.map((city) => city.id);
+
 export default capitalsSlice.reducer;

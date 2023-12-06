@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
-type ListItemProps = {
+type CityButtonProps = {
 	children: React.ReactNode;
 };
 
-const CityListItem = ({ children }: ListItemProps) => {
+const CityButton = ({ children }: CityButtonProps) => {
 	return (
 		<Link href='/weather' className='text-3xl text-primary'>
 			{children}
@@ -12,4 +12,4 @@ const CityListItem = ({ children }: ListItemProps) => {
 	);
 };
 
-export default CityListItem;
+export default CityButton;

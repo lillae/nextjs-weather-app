@@ -1,4 +1,4 @@
-import { SearchCities, Dropdown } from '.';
+import { SearchCities, CityList } from '.';
 import { getCities } from '@/services/city-data';
 
 export default async function Search({
@@ -13,7 +13,7 @@ export default async function Search({
 		<main>
 			<div className='max-w-[400px] w-full flex-flex-col items-center justify-center mx-auto gap-y-6'>
 				<SearchCities />
-				{query !== '' && <Dropdown cities={cities} query={query} />}
+				{query !== '' && <CityList cities={cities} query={query} />}
 			</div>
 		</main>
 	);

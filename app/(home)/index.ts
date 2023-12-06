@@ -1,1 +1,1 @@
-export { default as CityList } from './city-list';
+export { default as SelectedCities } from './selected-cities';

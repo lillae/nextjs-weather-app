@@ -1,9 +1,9 @@
-import { CityList } from '.';
+import { SelectedCities } from '.';
 
 export default function Home() {
 	return (
 		<main>
-			<CityList />
+			<SelectedCities />
 		</main>
 	);
 }

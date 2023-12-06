@@ -1,18 +1,17 @@
 'use client';
 
-import { CityListItem } from '@/ui/list';
-import { AddButton } from '@/ui/buttons';
+import { AddButton, CityButton } from '@/ui/buttons';
 import { useAppSelector } from '@/lib/redux/redux-hooks';
 import { selectedCapitals } from '@/lib/redux/features/capitals/capitals-slice';
 
-const CityList = () => {
-	const selectedCities = useAppSelector(selectedCapitals);
+const SelectedCities = () => {
+	const selected = useAppSelector(selectedCapitals);
 	return (
 		<section>
 			<div className='flex flex-col items-center gap-4'>
 				<div className='flex flex-col items-center gap-2'>
-					{selectedCities.map((city) => (
-						<CityListItem key={city.id}>{city.name}</CityListItem>
+					{selected.map((city) => (
+						<CityButton key={city.id}>{city.name}</CityButton>
 					))}
 				</div>
 				<AddButton />
@@ -21,4 +20,4 @@ const CityList = () => {
 	);
 };
 
-export default CityList;
+export default SelectedCities;
