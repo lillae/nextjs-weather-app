@@ -1,5 +1,5 @@
 import { SearchCities, CityList } from '.';
-import { getCities } from '@/services/city-data';
+import { fetchCities } from '@/services/city-data';
 
 export default async function Search({
 	searchParams,
@@ -7,7 +7,7 @@ export default async function Search({
 	searchParams?: { query?: string };
 }) {
 	const query = searchParams?.query || '';
-	const cities = await getCities(query);
+	const cities = await fetchCities(query);
 
 	return (
 		<main>

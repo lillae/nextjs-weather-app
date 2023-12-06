@@ -1,14 +1,13 @@
-import Link from 'next/link';
-
 type CityButtonProps = {
 	children: React.ReactNode;
+	onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const CityButton = ({ children }: CityButtonProps) => {
+const CityButton = ({ children, onClick }: CityButtonProps) => {
 	return (
-		<Link href='/weather' className='text-3xl text-primary'>
+		<button onClick={onClick} className='text-3xl text-primary'>
 			{children}
-		</Link>
+		</button>
 	);
 };
 

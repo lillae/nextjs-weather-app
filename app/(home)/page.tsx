@@ -1,6 +1,9 @@
 import { SelectedCities } from '.';
+//import { fetchCoordinates } from '@/services/weather-data';
 
-export default function Home() {
+export default async function Home() {
+	//const coord = await fetchCoordinates();
+
 	return (
 		<main>
 			<SelectedCities />

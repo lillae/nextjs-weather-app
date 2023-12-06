@@ -8,11 +8,11 @@ interface ICapital {
 	name: string;
 	coordinates: {
 		lat: number;
-		lng: number;
+		lon: number;
 	};
 }
 const initialState: ICapital[] = [
-	{ id: 'HUN', name: 'Budapest', coordinates: { lat: 47.5, lng: 19.08 } },
+	{ id: 'HUN', name: 'Budapest', coordinates: { lat: 47.5, lon: 19.08 } },
 ];
 
 export const capitalsSlice = createSlice({

@@ -1,4 +1,4 @@
-export const getCities = async (term: string) => {
+export const fetchCities = async (term: string) => {
 	const url = `${process.env.REST_COUNTRIES_BASE_URL}capital/${term}?fields=capital,cca3,capitalInfo`;
 
 	try {
@@ -10,7 +10,7 @@ export const getCities = async (term: string) => {
 				name: d.capital[0],
 				coordinates: {
 					lat: d.capitalInfo.latlng[0],
-					lng: d.capitalInfo.latlng[1],
+					lon: d.capitalInfo.latlng[1],
 				},
 			}));
 
