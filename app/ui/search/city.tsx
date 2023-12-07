@@ -9,7 +9,7 @@ import {
 	selectCapitalIds,
 } from '@/lib/redux/features/capitals/capitals-slice';
 import { useHighlighter } from '@/lib/hooks/useHighlighter';
-import { SaveButton } from '@/ui/buttons';
+import { SaveButton } from '@/ui/elements/buttons';
 
 type City = {
 	city: any;

@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
-import { AddButton, CityButton } from '@/ui/buttons';
+import { AddButton, CityButton } from '@/ui/elements/buttons';
 import { useAppSelector } from '@/lib/redux/redux-hooks';
 import { selectCapitals } from '@/lib/redux/features/capitals/capitals-slice';
 import { getEngLetters } from '@/utils/utils';

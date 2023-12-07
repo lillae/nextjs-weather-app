@@ -1,6 +1,5 @@
-import { CurrentWeather } from '.';
+import { CurrentWeather } from '@/ui/weather';
 import { fetchCurrentWeather, fetchCoordinates } from '@/services/weather-data';
-import Error from '../search/error';
 import { notFound } from 'next/navigation';
 interface Params {
 	searchParams: {

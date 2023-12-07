@@ -1,4 +1,4 @@
-import { SelectedCities } from '.';
+import SelectedCities from '@/ui/home/selected-cities';
 
 export default function Home() {
 	return (
