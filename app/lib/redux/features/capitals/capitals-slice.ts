@@ -12,7 +12,7 @@ interface ICapital {
 	};
 }
 const initialState: ICapital[] = [
-	{ id: 'HUN', name: 'Budapest', coordinates: { lat: 47.5, lon: 19.08 } },
+	{ id: 'HU', name: 'Budapest', coordinates: { lat: 47.5, lon: 19.08 } },
 ];
 
 export const capitalsSlice = createSlice({

@@ -1,6 +1,8 @@
-export const fetchCurrentWeather = async (lat: number, lon: number) => {
-	const url = `${process.env.OPENWEATHER_BASE_URL}?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`;
+import { unstable_noStore as noStore } from 'next/cache';
 
+export const fetchCurrentWeather = async (lat: number, lon: number) => {
+	const url = `${process.env.OPENWEATHER_BASE_URL}?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,daily,alerts&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`;
+	noStore();
 	try {
 		const res = await fetch(url);
 		const data = await res.json();
@@ -12,7 +14,7 @@ export const fetchCurrentWeather = async (lat: number, lon: number) => {
 };
 
 export const fetchCoordinates = async (city: string, countryCode: string) => {
-	const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${countryCode}&limit=1&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`;
+	const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${countryCode}&limit=3&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`;
 
 	try {
 		const res = await fetch(url);

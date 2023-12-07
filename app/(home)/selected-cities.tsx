@@ -4,6 +4,7 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { AddButton, CityButton } from '@/ui/buttons';
 import { useAppSelector } from '@/lib/redux/redux-hooks';
 import { selectCapitals } from '@/lib/redux/features/capitals/capitals-slice';
+import { getEngLetters } from '@/utils/utils';
 
 const SelectedCities = () => {
 	const selected = useAppSelector(selectCapitals);
@@ -15,7 +16,7 @@ const SelectedCities = () => {
 	const getCityInfo = (cityName: string, countryCode: string) => {
 		const params = new URLSearchParams(searchParams);
 		if (cityName && countryCode) {
-			params.set('city', cityName);
+			params.set('city', getEngLetters(cityName));
 			params.set('countryCode', countryCode);
 		} else {
 			params.delete('city', 'countryCode');
