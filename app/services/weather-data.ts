@@ -22,9 +22,7 @@ export const fetchCoordinates = async (city: string, countryCode: string) => {
 	try {
 		const res = await fetch(url);
 		const data = await res.json();
-		if (!data) {
-			throw new Error('Capital not found');
-		}
+
 		return data;
 	} catch (error) {
 		console.log(error);
