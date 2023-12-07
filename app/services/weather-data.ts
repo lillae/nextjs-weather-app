@@ -1,15 +1,18 @@
-import { unstable_noStore as noStore } from 'next/cache';
+import { notFound } from 'next/navigation';
 
 export const fetchCurrentWeather = async (lat: number, lon: number) => {
 	const url = `${process.env.OPENWEATHER_BASE_URL}?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,daily,alerts&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`;
-	noStore();
+
 	try {
 		const res = await fetch(url);
 		const data = await res.json();
-
+		if (!data) {
+			notFound();
+		}
 		return data;
 	} catch (error) {
-		console.error(error);
+		console.log(error);
+		throw new Error('Current Weather not found in this city');
 	}
 };
 
@@ -19,9 +22,12 @@ export const fetchCoordinates = async (city: string, countryCode: string) => {
 	try {
 		const res = await fetch(url);
 		const data = await res.json();
-
+		if (!data) {
+			throw new Error('Capital not found');
+		}
 		return data;
 	} catch (error) {
-		console.error(error);
+		console.log(error);
+		throw new Error('Capital not found');
 	}
 };

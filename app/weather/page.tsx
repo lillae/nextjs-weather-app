@@ -1,5 +1,7 @@
 import { CurrentWeather } from '.';
 import { fetchCurrentWeather, fetchCoordinates } from '@/services/weather-data';
+import Error from '../search/error';
+import { notFound } from 'next/navigation';
 interface Params {
 	searchParams: {
 		city: string;
@@ -7,24 +9,28 @@ interface Params {
 	};
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function Weather({ searchParams }: Params) {
 	const city = searchParams.city;
 	const countryCode = searchParams.countryCode;
-	const coord = await fetchCoordinates(city, countryCode);
-
-	//Geocode API doesn't always give back the exact capital name as 1st result
-	//For example 'Palais Royale' instead of 'Paris' or 'Nonthaburi' instead of Bangkok, eventhough lat/long is correct
-	const cityMatch =
-		coord.length >= 1 && coord.find((c: any) => c.name === city);
-	const currentWeather = await fetchCurrentWeather(coord[0].lat, coord[0].lon);
-
+	const coords = await fetchCoordinates(city, countryCode);
+	const coordExists = coords && coords.length > 0;
+	const cityMatch = coordExists && coords.find((c: any) => c.name === city);
+	const currentWeather =
+		coordExists && (await fetchCurrentWeather(coords[0].lat, coords[0].lon));
+	if (!currentWeather) {
+		notFound();
+	}
 	return (
 		<main>
 			<section>
-				<CurrentWeather
-					currentWeather={currentWeather}
-					name={cityMatch ? cityMatch.name : currentWeather.name}
-				/>
+				{currentWeather && (
+					<CurrentWeather
+						currentWeather={currentWeather}
+						name={cityMatch ? cityMatch.name : currentWeather.name}
+					/>
+				)}
 			</section>
 		</main>
 	);

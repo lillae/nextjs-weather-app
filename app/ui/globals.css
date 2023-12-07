@@ -24,4 +24,12 @@
 	mark {
 		@apply text-primary bg-transparent;
 	}
+
+	.error-btn-full {
+		@apply h-[35px] w-[93px] text-base rounded-full px-2 bg-secondary text-black/80 hover:bg-secondary/90;
+	}
+
+	.error-btn-outline {
+		@apply h-[35px] text-base rounded-full w-[93px] px-2 border border-secondary text-secondary my-auto hover:bg-secondary/10;
+	}
 }

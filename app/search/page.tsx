@@ -1,5 +1,6 @@
 import { SearchCities, CityList } from '.';
 import { fetchCities } from '@/services/city-data';
+import { notFound } from 'next/navigation';
 
 export default async function Search({
 	searchParams,

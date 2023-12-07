@@ -1,3 +1,5 @@
+'use client';
+
 import { WiSunset, WiSunrise, WiThermometer } from 'react-icons/wi';
 
 import { BackButton } from '@/ui/buttons';
