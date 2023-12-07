@@ -1,5 +1,5 @@
 export const fetchCities = async (term: string) => {
-	const url = `${process.env.REST_COUNTRIES_BASE_URL}capital/${term}?fields=capital,cca2,capitalInfo`;
+	const url = `${process.env.NEXT_PUBLIC_REST_COUNTRIES_BASE_URL}capital/${term}?fields=capital,cca2,capitalInfo`;
 
 	try {
 		const res = await fetch(url);
