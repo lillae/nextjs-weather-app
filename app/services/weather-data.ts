@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
 export const fetchCurrentWeather = async (lat: number, lon: number) => {
-	const url = `${process.env.OPENWEATHER_BASE_URL}?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,daily,alerts&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`;
+	const url = `${process.env.NEXT_PUBLIC_OPENWEATHER_BASE_URL}?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,daily,alerts&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`;
 
 	try {
 		const res = await fetch(url);
