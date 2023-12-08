@@ -27,7 +27,7 @@ const SelectedCities = () => {
 
 	return (
 		<section>
-			<div className='flex flex-col items-center gap-4 lg:pt-[80px]'>
+			<div className='flex flex-col items-center gap-4 pt-[80px]'>
 				<div className='flex flex-col items-center gap-2'>
 					{selected.map((city) => (
 						<CityButton
