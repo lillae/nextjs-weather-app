@@ -2,7 +2,7 @@
 
 import { WiSunset, WiSunrise, WiThermometer } from 'react-icons/wi';
 
-import { BackButton } from '@/ui/elements/buttons';
+import { BackButtonIcon } from '@/ui/elements/buttons/back-buttons';
 import { WeatherInfo } from '@/ui/weather/weather-icons';
 import { getLocalTime, getLocalSunrise, getLocalSunset } from '@/utils/getTime';
 
@@ -37,7 +37,7 @@ const CurrentWeather = ({ currentWeather, name }: ICurrentWeather) => {
 	return (
 		<div className='w-full flex flex-col items-center gap-6'>
 			<div className='weather-time max-w-[300px] w-full mx-auto flex flex-col gap-14'>
-				<BackButton />
+				<BackButtonIcon />
 				<p className='max-w-[60px] w-full text-5xl text-blue-4 text-center mx-auto'>
 					{currentTime}
 				</p>

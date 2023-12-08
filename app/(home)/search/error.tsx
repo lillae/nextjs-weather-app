@@ -1,6 +1,9 @@
 'use client';
 
-import Link from 'next/link';
+import {
+	BackButtonFull,
+	BackButtonOutline,
+} from '@/ui/elements/buttons/back-buttons';
 import { useEffect } from 'react';
 
 export default function Error({
@@ -22,14 +25,8 @@ export default function Error({
 					<h1 className='text-3xl'>Please try again</h1>
 				</div>
 				<div className='flex items-center justify-center gap-4'>
-					<button onClick={() => reset()} className='error-btn-full'>
-						Try again
-					</button>
-					<button className='error-btn-outline'>
-						<Link href='/' aria-label='Return to home page'>
-							Go Back
-						</Link>
-					</button>
+					<BackButtonFull onClick={() => reset()} />
+					<BackButtonOutline />
 				</div>
 			</div>
 		</main>
