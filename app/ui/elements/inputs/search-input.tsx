@@ -2,7 +2,7 @@ type SearchInput = {
 	value?: string;
 	onChange: React.ChangeEventHandler<HTMLInputElement>;
 	placeholder: string;
-	defaultValue: string;
+	defaultValue?: string;
 };
 
 const SearchInput = ({

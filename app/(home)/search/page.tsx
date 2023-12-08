@@ -1,5 +1,6 @@
 import { SearchCities, CityList } from '@/ui/search';
 import { fetchCities } from '@/services/city-data';
+import { ICapital } from '@/lib/types/definitions';
 
 export default async function Search({
 	searchParams,
