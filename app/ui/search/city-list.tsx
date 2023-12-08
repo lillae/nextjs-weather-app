@@ -6,8 +6,11 @@ import { useRouter } from 'next/navigation';
 import { City } from '.';
 import { SaveButton } from '@/ui/elements/buttons';
 import { ICapital } from '@/lib/types/definitions';
-import { useAppDispatch } from '@/lib/redux/redux-hooks';
-import { addCapital } from '@/lib/redux/features/capitals/capitals-slice';
+import { useAppDispatch, useAppSelector } from '@/lib/redux/redux-hooks';
+import {
+	addCapital,
+	selectCapitalIds,
+} from '@/lib/redux/features/capitals/capitals-slice';
 
 const CityList = ({
 	cities,
@@ -20,6 +23,7 @@ const CityList = ({
 	const dispatch = useAppDispatch();
 	const [isSelected, setIsSelected] = useState<boolean>(false);
 	const [activeId, setActiveId] = useState<string>('');
+	const selectedIds = useAppSelector(selectCapitalIds);
 
 	const clickHandler = (id: string) => {
 		setActiveId(id);
@@ -29,7 +33,7 @@ const CityList = ({
 	const saveHandler = (city: ICapital) => {
 		dispatch(addCapital(city));
 		setActiveId('');
-		setIsSelected(false);
+		router.refresh();
 		router.push('/');
 	};
 	return (
@@ -38,17 +42,19 @@ const CityList = ({
 				cities.slice(0, 8).map((city) => {
 					const check = isSelected && city.id === activeId;
 					return (
-						<div
-							key={city.id}
-							onClick={() => clickHandler(city.id)}
-							className={`${
-								check ? 'bg-blue-2/5' : ''
-							} w-full cursor-pointer text-blue-4 flex items-center justify-between p-2`}>
-							<City city={city} term={query} />
-							{check && (
-								<SaveButton onClick={() => saveHandler(city)}>Save</SaveButton>
+						<>
+							{!selectedIds.includes(city.id) && (
+								<div key={city.id} onClick={() => clickHandler(city.id)}>
+									<div
+										className={`${
+											check ? 'bg-blue-2/5' : ''
+										} w-full cursor-pointer text-blue-4 flex items-center justify-between p-2`}>
+										<City city={city} term={query} />
+										{check && <SaveButton onClick={() => saveHandler(city)} />}
+									</div>
+								</div>
 							)}
-						</div>
+						</>
 					);
 				})}
 		</div>
