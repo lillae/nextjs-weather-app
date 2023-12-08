@@ -5,8 +5,8 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 import { IoChevronDown } from 'react-icons/io5';
 
-import { BackButton } from '@/ui/buttons';
-import { SearchInput } from '@/ui/inputs';
+import { BackButtonIcon } from '@/ui/elements/buttons/back-buttons';
+import { SearchInput } from '@/ui/elements/inputs';
 
 const SearchCities = () => {
 	const searchParams = useSearchParams();
@@ -25,7 +25,7 @@ const SearchCities = () => {
 
 	return (
 		<div className='w-full flex flex-col gap-14 relative'>
-			<BackButton />
+			<BackButtonIcon />
 			<div className='w-full flex items-center'>
 				<SearchInput
 					onChange={(e) => handleSearch(e.target.value)}

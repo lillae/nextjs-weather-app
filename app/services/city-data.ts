@@ -5,10 +5,6 @@ export const fetchCities = async (term: string) => {
 		const res = await fetch(url);
 		const data = await res.json();
 
-		if (!data) {
-			throw new Error('Fetching cities failed, please try again');
-		}
-
 		if (data && data.length > 0) {
 			const capitalCities = data.map((d: any) => ({
 				id: d.cca2,
@@ -22,5 +18,6 @@ export const fetchCities = async (term: string) => {
 		}
 	} catch (error) {
 		console.log(error);
+		throw new Error('Failed to fetch cities');
 	}
 };

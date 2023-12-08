@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 export const getLocalTime = (timezone: number) => {
-	return moment().utcOffset(timezone).format('hh mm');
+	return moment().utcOffset(timezone).format('HH mm');
 };
 
 export const getLocalSunrise = (sunrise: number, timezone: number) => {

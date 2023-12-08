@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
-import { AddButton, CityButton } from '@/ui/buttons';
+import { AddButton, CityButton } from '@/ui/elements/buttons';
 import { useAppSelector } from '@/lib/redux/redux-hooks';
 import { selectCapitals } from '@/lib/redux/features/capitals/capitals-slice';
 import { getEngLetters } from '@/utils/utils';
@@ -27,7 +27,7 @@ const SelectedCities = () => {
 
 	return (
 		<section>
-			<div className='flex flex-col items-center gap-4'>
+			<div className='flex flex-col items-center gap-4 lg:pt-[80px]'>
 				<div className='flex flex-col items-center gap-2'>
 					{selected.map((city) => (
 						<CityButton
