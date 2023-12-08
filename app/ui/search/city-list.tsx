@@ -20,10 +20,10 @@ const CityList = ({
 	query: string;
 }) => {
 	const router = useRouter();
+	const selectedIds = useAppSelector(selectCapitalIds);
 	const dispatch = useAppDispatch();
 	const [isSelected, setIsSelected] = useState<boolean>(false);
 	const [activeId, setActiveId] = useState<string>('');
-	const selectedIds = useAppSelector(selectCapitalIds);
 
 	const clickHandler = (id: string) => {
 		setActiveId(id);
@@ -33,7 +33,6 @@ const CityList = ({
 	const saveHandler = (city: ICapital) => {
 		dispatch(addCapital(city));
 		setActiveId('');
-		router.refresh();
 		router.push('/');
 	};
 	return (
