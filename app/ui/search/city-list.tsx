@@ -1,7 +1,13 @@
 import { City } from '.';
 import { ICapital } from '@/lib/types/definitions';
 
-const CityList = ({ cities, query }: { cities: ICapital[]; query: string }) => {
+const CityList = ({
+	cities,
+	query,
+}: {
+	cities: ICapital[] | undefined;
+	query: string;
+}) => {
 	return (
 		<div className='w-full'>
 			{cities &&
