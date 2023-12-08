@@ -7,7 +7,9 @@ export default function NotFound() {
 				<h1 className='text-2xl'>Not Found</h1>
 				<p>Could not find requested data, please try a different city</p>
 				<button className='error-btn-outline'>
-					<Link href='/'>Go Back</Link>
+					<Link href='/' aria-label='Return to home page'>
+						Go Back
+					</Link>
 				</button>
 			</div>
 		</main>

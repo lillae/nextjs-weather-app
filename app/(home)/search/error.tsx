@@ -26,7 +26,9 @@ export default function Error({
 						Try again
 					</button>
 					<button className='error-btn-outline'>
-						<Link href='/'>Go Back</Link>
+						<Link href='/' aria-label='Return to home page'>
+							Go Back
+						</Link>
 					</button>
 				</div>
 			</div>
