@@ -35,18 +35,18 @@ const CurrentWeather = ({ currentWeather, name }: ICurrentWeather) => {
 	];
 
 	return (
-		<div className='w-full flex flex-col items-center gap-6'>
-			<div className='weather-wrapper'>
+		<div className='w-full flex flex-col items-center'>
+			<div className='weather-wrapper gap-14 mb-2'>
 				<BackButtonIcon />
 				<Time text={currentTime} />
 			</div>
 			<CityName text={name} />
-			<div className='weather-wrapper'>
+			<div className='weather-wrapper gap-6 mt-6'>
 				<div className='text-center space-y-4'>
 					<WeatherIcon className={`wi wi-owm-${weather[0].id}`} />
 					<p className='text-sm'>{weather[0].description}</p>
 				</div>
-				<div className='w-[96px] flex flex-col items-center gap-3 mx-auto'>
+				<div className='w-[96px] flex flex-col items-center gap-2 mx-auto'>
 					{weatherMap.map((info, index) => (
 						<WeatherInfo key={index} text={info.text}>
 							<info.icon />

@@ -36,6 +36,6 @@
 	}
 
 	.weather-wrapper {
-		@apply max-w-[300px] w-full mx-auto flex flex-col gap-14;
+		@apply max-w-[300px] w-full mx-auto flex flex-col;
 	}
 }
