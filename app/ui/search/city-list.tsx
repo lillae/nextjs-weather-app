@@ -7,7 +7,7 @@ const CityList = ({ cities, query }: { cities: ICapital[]; query: string }) => {
 			{cities &&
 				cities
 					.slice(0, 8)
-					.map((city) => <City key={city.id} city={city} term={query} />)}
+					.map((city, i) => <City key={city.id} city={city} term={query} />)}
 		</div>
 	);
 };
