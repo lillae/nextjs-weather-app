@@ -8,7 +8,7 @@ export const fetchCities = async (term: string) => {
 		const data = await res.json();
 
 		if (data && data.length > 0) {
-			const capitalCities = data.map((d: any) => ({
+			const cities = data.map((d: any) => ({
 				id: d.cca2,
 				name: d.capital[0],
 				coordinates: {
@@ -16,7 +16,7 @@ export const fetchCities = async (term: string) => {
 					lon: d.capitalInfo.latlng[1],
 				},
 			}));
-			return capitalCities as ICapital[];
+			return cities as ICapital[];
 		}
 	} catch (error) {
 		console.log(error);
