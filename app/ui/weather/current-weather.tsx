@@ -2,8 +2,8 @@
 
 import { WiSunset, WiSunrise, WiThermometer } from 'react-icons/wi';
 
+import { Time, CityName, WeatherIcon, WeatherInfo } from '.';
 import { BackButtonIcon } from '@/ui/elements/buttons/back-buttons';
-import { WeatherInfo } from '@/ui/weather/weather-icons';
 import { getLocalTime, getLocalSunrise, getLocalSunset } from '@/utils/getTime';
 
 interface ICurrentWeather {
@@ -19,7 +19,7 @@ const CurrentWeather = ({ currentWeather, name }: ICurrentWeather) => {
 	const sunset = getLocalSunset(sys.sunset, timezone);
 	const temperature = Math.round(main.temp);
 
-	const weatherIcons = [
+	const weatherMap = [
 		{
 			icon: WiThermometer,
 			text: `${temperature} °C`,
@@ -36,28 +36,20 @@ const CurrentWeather = ({ currentWeather, name }: ICurrentWeather) => {
 
 	return (
 		<div className='w-full flex flex-col items-center gap-6'>
-			<div className='weather-time max-w-[300px] w-full mx-auto flex flex-col gap-14'>
+			<div className='weather-wrapper'>
 				<BackButtonIcon />
-				<p className='max-w-[60px] w-full text-5xl text-blue-4 text-center mx-auto'>
-					{currentTime}
-				</p>
+				<Time text={currentTime} />
 			</div>
-			<h1 className='text-xl lg:text-3xl text-primary font-semibold text-center'>
-				{name}
-			</h1>
-			<div className='weather-info max-w-[300px] w-full mx-auto flex flex-col gap-14'>
+			<CityName text={name} />
+			<div className='weather-wrapper'>
 				<div className='text-center space-y-4'>
-					<span className='text-blue-4 text-8xl'>
-						<i className={`wi wi-owm-${weather[0].id}`} />
-					</span>
+					<WeatherIcon className={`wi wi-owm-${weather[0].id}`} />
 					<p className='text-sm'>{weather[0].description}</p>
 				</div>
 				<div className='w-[96px] flex flex-col items-center gap-3 mx-auto'>
-					{weatherIcons.map((info, index) => (
+					{weatherMap.map((info, index) => (
 						<WeatherInfo key={index} text={info.text}>
-							<span className='text-3xl text-blue-5 text-center'>
-								<info.icon />
-							</span>
+							<info.icon />
 						</WeatherInfo>
 					))}
 				</div>

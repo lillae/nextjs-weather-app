@@ -26,7 +26,7 @@ export const BackButtonOutline = () => {
 
 export const BackButtonFull = ({ onClick }: BackButtonProps) => {
 	return (
-		<button onClick={onClick} className='error-btn full'>
+		<button onClick={onClick} className='error-btn-full' aria-label='Try again'>
 			Try again
 		</button>
 	);

@@ -1,5 +1,5 @@
 export const getEngLetters = (str: string) => {
-	const accents = 'ÁÉÍÓÚáéíóúâêîôûàèìòùÇçē';
+	const accents = 'ÁÉÍÓÚáéíóúâñêîôûàèìòùÇçēå';
 	const accentLetters = accents.split('');
 	const strLetters = str.split('');
 	const findMatch = strLetters.some((r) => accentLetters.includes(r));
