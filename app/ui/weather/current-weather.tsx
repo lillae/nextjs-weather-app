@@ -42,7 +42,9 @@ const CurrentWeather = ({ currentWeather, name }: ICurrentWeather) => {
 					{currentTime}
 				</p>
 			</div>
-			<h1 className='text-3xl text-primary font-semibold'>{name}</h1>
+			<h1 className='text-xl lg:text-3xl text-primary font-semibold text-center'>
+				{name}
+			</h1>
 			<div className='weather-info max-w-[300px] w-full mx-auto flex flex-col gap-14'>
 				<div className='text-center space-y-4'>
 					<span className='text-blue-4 text-8xl'>

@@ -7,7 +7,7 @@ const WeatherInfo = ({ text, children }: WeatherInfo) => {
 	return (
 		<div className='w-full flex gap-4'>
 			{children}
-			<p className='text-blue-3 text-left'>{text}</p>
+			<p className='text-base lg:text-lg text-blue-3 text-left'>{text}</p>
 		</div>
 	);
 };
