@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { ICurrentWeather } from '@/lib/types/definitions';
 
 export const fetchCurrentWeather = async (lat: number, lon: number) => {
 	const url = `${process.env.NEXT_PUBLIC_OPENWEATHER_BASE_URL}?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,daily,alerts&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`;
@@ -9,7 +10,7 @@ export const fetchCurrentWeather = async (lat: number, lon: number) => {
 		if (!data) {
 			notFound();
 		}
-		return data;
+		return data as ICurrentWeather;
 	} catch (error) {
 		console.log(error);
 		throw new Error('Current Weather not found in this city');

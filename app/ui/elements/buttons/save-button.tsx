@@ -1,9 +1,9 @@
-interface ISaveButton {
+type Save = {
 	children: React.ReactNode;
 	onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
+};
 
-const SaveButton = ({ children, onClick }: ISaveButton) => {
+const SaveButton = ({ children, onClick }: Save) => {
 	return (
 		<button
 			onClick={onClick}

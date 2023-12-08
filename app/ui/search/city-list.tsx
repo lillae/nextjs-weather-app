@@ -1,12 +1,13 @@
 import { City } from '.';
+import { ICapital } from '@/lib/types/definitions';
 
-const CityList = ({ cities, query }: { cities: any; query: string }) => {
+const CityList = ({ cities, query }: { cities: ICapital[]; query: string }) => {
 	return (
 		<div className='w-full'>
 			{cities &&
 				cities
 					.slice(0, 8)
-					.map((city: any) => <City key={city.id} city={city} term={query} />)}
+					.map((city) => <City key={city.id} city={city} term={query} />)}
 		</div>
 	);
 };

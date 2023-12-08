@@ -19,7 +19,7 @@ export default function Error({
 
 	return (
 		<main>
-			<div className='w-full flex flex-col items-center justify-center gap-8 mt-24'>
+			<div className='w-full flex flex-col items-center justify-center gap-8 pt-[80px]'>
 				<div className='text-center space-y-3'>
 					<p className='font-normal'>An error occured..</p>
 					<h1 className='text-3xl'>Please try again</h1>

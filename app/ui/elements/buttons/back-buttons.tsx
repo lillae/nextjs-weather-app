@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { IoChevronBack } from 'react-icons/io5';
 
-type BackButtonProps = {
+type BackButton = {
 	onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
@@ -24,7 +24,7 @@ export const BackButtonOutline = () => {
 	);
 };
 
-export const BackButtonFull = ({ onClick }: BackButtonProps) => {
+export const BackButtonFull = ({ onClick }: BackButton) => {
 	return (
 		<button onClick={onClick} className='error-btn-full' aria-label='Try again'>
 			Try again

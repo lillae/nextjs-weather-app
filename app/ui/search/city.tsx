@@ -10,13 +10,9 @@ import {
 } from '@/lib/redux/features/capitals/capitals-slice';
 import { useHighlighter } from '@/lib/hooks/useHighlighter';
 import { SaveButton } from '@/ui/elements/buttons';
+import { ICapital } from '@/lib/types/definitions';
 
-type City = {
-	city: any;
-	term: string;
-};
-
-const City = ({ city, term }: City) => {
+const City = ({ city, term }: { city: ICapital; term: string }) => {
 	const router = useRouter();
 	const dispatch = useAppDispatch();
 	const selectedIds = useAppSelector(selectCapitalIds);
@@ -26,12 +22,12 @@ const City = ({ city, term }: City) => {
 	const [isSelected, setIsSelected] = useState<boolean>(false);
 	const [activeId, setActiveId] = useState<string>('');
 
-	const clickHandler = (city: any) => {
+	const clickHandler = (city: ICapital) => {
 		setIsSelected(!isSelected);
 		setActiveId(city.id);
 	};
 
-	const saveHandler = (city: any) => {
+	const saveHandler = (city: ICapital) => {
 		dispatch(addCapital(city));
 		setActiveId('');
 		router.push('/');

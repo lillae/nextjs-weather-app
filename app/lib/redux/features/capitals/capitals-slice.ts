@@ -2,15 +2,8 @@ import { memoize } from 'proxy-memoize';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import type { RootState } from '@/lib/redux/redux-store';
+import { ICapital } from '@/lib/types/definitions';
 
-interface ICapital {
-	id: string;
-	name: string;
-	coordinates: {
-		lat: number;
-		lon: number;
-	};
-}
 const initialState: ICapital[] = [
 	{ id: 'HU', name: 'Budapest', coordinates: { lat: 47.5, lon: 19.08 } },
 ];

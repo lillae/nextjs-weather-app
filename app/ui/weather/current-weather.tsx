@@ -5,13 +5,15 @@ import { WiSunset, WiSunrise, WiThermometer } from 'react-icons/wi';
 import { Time, CityName, WeatherIcon, WeatherInfo } from '.';
 import { BackButtonIcon } from '@/ui/elements/buttons/back-buttons';
 import { getLocalTime, getLocalSunrise, getLocalSunset } from '@/utils/getTime';
+import { ICurrentWeather } from '@/lib/types/definitions';
 
-interface ICurrentWeather {
-	currentWeather: Record<any, any>;
+const CurrentWeather = ({
+	currentWeather,
+	name,
+}: {
+	currentWeather: ICurrentWeather;
 	name: string;
-}
-
-const CurrentWeather = ({ currentWeather, name }: ICurrentWeather) => {
+}) => {
 	const { weather, timezone, sys, main } = currentWeather;
 	const timezoneInMinutes = timezone / 60;
 	const currentTime = getLocalTime(timezoneInMinutes);

@@ -1,16 +1,16 @@
-interface ISearchInput {
+type SearchInput = {
 	value?: string;
 	onChange: React.ChangeEventHandler<HTMLInputElement>;
 	placeholder: string;
-	defaultValue: any;
-}
+	defaultValue: string;
+};
 
 const SearchInput = ({
 	value,
 	onChange,
 	placeholder,
 	defaultValue,
-}: ISearchInput) => {
+}: SearchInput) => {
 	return (
 		<input
 			type='search'

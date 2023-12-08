@@ -1,12 +1,13 @@
 import { CurrentWeather } from '@/ui/weather';
 import { fetchCurrentWeather, fetchCoordinates } from '@/services/weather-data';
 import { notFound } from 'next/navigation';
-interface Params {
+
+type Params = {
 	searchParams: {
 		city: string;
 		countryCode: string;
 	};
-}
+};
 
 export const dynamic = 'force-dynamic';
 

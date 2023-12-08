@@ -1,3 +1,5 @@
+import { ICapital } from '@/lib/types/definitions';
+
 export const fetchCities = async (term: string) => {
 	const url = `${process.env.NEXT_PUBLIC_REST_COUNTRIES_BASE_URL}capital/${term}?fields=capital,cca2,capitalInfo`;
 
@@ -14,7 +16,7 @@ export const fetchCities = async (term: string) => {
 					lon: d.capitalInfo.latlng[1],
 				},
 			}));
-			return capitalCities;
+			return capitalCities as ICapital[];
 		}
 	} catch (error) {
 		console.log(error);

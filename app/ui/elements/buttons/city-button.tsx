@@ -1,9 +1,9 @@
-type CityButtonProps = {
+type CityButton = {
 	children: React.ReactNode;
 	onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const CityButton = ({ children, onClick }: CityButtonProps) => {
+const CityButton = ({ children, onClick }: CityButton) => {
 	return (
 		<button
 			onClick={onClick}
