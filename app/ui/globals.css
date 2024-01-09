@@ -4,7 +4,7 @@
 
 @layer base {
 	body {
-		@apply bg-blue-1 text-primary text-lg;
+		@apply bg-gradient bg-cover bg-center bg-no-repeat text-primary/60 text-lg;
 	}
 	main {
 		@apply flex min-h-screen flex-col items-center justify-between p-4;
@@ -22,7 +22,7 @@
 	}
 
 	mark {
-		@apply text-primary bg-transparent;
+		@apply text-secondary bg-transparent;
 	}
 }
 

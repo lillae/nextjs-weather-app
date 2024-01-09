@@ -32,7 +32,7 @@ const SearchCities = () => {
 					defaultValue={searchParams.get('query')?.toString()}
 					placeholder='Search capitals'
 				/>
-				<IoChevronDown className='text-white/80 text-xl -ml-[20px]' />
+				<IoChevronDown className='text-primary/40 text-xl -ml-[20px]' />
 			</div>
 		</div>
 	);

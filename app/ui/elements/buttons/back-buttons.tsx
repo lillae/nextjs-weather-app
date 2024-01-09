@@ -9,7 +9,7 @@ type BackButton = {
 export const BackButtonIcon = () => {
 	return (
 		<Link href='/' aria-label='Return to home page'>
-			<IoChevronBack className='text-blue-4 text-2xl' />
+			<IoChevronBack className='text-primary/40 text-2xl' />
 		</Link>
 	);
 };

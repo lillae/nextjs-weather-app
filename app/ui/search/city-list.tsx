@@ -46,8 +46,8 @@ const CityList = ({
 								<div key={city.id} onClick={() => clickHandler(city.id)}>
 									<div
 										className={`${
-											check ? 'bg-blue-2/5' : ''
-										} w-full cursor-pointer text-blue-4 flex items-center justify-between p-2`}>
+											check ? 'bg-white/20' : ''
+										} w-full cursor-pointer text-primary/60 flex items-center justify-between p-2`}>
 										<City city={city} term={query} />
 										{check && <SaveButton onClick={() => saveHandler(city)} />}
 									</div>

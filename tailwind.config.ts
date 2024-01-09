@@ -9,8 +9,8 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#8FB3C7',
-				secondary: '#02FF40',
+				primary: 'black',
+				secondary: '#79acb6',
 				blue: {
 					1: '#142534',
 					2: '#91B7CC',
@@ -19,6 +19,9 @@ const config: Config = {
 					5: '#033670',
 					6: '#1F5B88',
 				},
+			},
+			backgroundImage: {
+				gradient: 'url("/assets/images/gradient.jpg")',
 			},
 			fontFamily: {
 				geologica: ['var(--font-geologica)'],
