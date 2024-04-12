@@ -40,7 +40,7 @@ const CurrentWeather = ({
 		<div className='w-full flex flex-col items-center'>
 			<div className='weather-wrapper gap-14 mb-2'>
 				<BackButtonIcon />
-				<Time text={currentTime} />
+				<Time time={currentTime} />
 			</div>
 			<CityName text={name} />
 			<div className='weather-wrapper gap-6 mt-6'>
